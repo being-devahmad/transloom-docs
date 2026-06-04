@@ -1,0 +1,105 @@
+---
+title: CLI Commands
+description: Complete reference for all Transloom CLI commands
+---
+
+## transloom init
+
+Run this once inside your project before anything else.
+
+```bash
+transloom init
+```
+
+**What it does:**
+- Asks for your API key
+- Asks for target languages
+- Asks for output directory
+- Creates `.transloom.json` in project root
+
+---
+
+## transloom scan
+
+The main command. Scans your project, translates strings, and sets everything up.
+
+```bash
+transloom scan
+```
+
+**Options:**
+
+```bash
+transloom scan --dry-run
+```
+
+Preview all strings that would be extracted — nothing is written or replaced.
+
+---
+
+## transloom validate
+
+Check that everything is correctly set up before running a scan.
+
+```bash
+transloom validate
+```
+
+**Example output:**
+
+```
+✔ .transloom.json found
+✔ API key authenticated as john_doe
+✔ Usage: 3/10 scans
+✔ Framework: nextjs
+✔ Languages: en, de, fr
+✔ Output dir: public/locales
+✔ next-intl installed (^3.0.0)
+
+✅ All checks passed (7/7)
+```
+
+---
+
+## transloom status
+
+Shows your account info, usage stats, and current project config.
+
+```bash
+transloom status
+```
+
+---
+
+## transloom uninstall
+
+Removes everything Transloom added to your project.
+
+```bash
+transloom uninstall
+```
+
+**Removes:**
+- Installed i18n packages (next-intl or i18next)
+- Generated files (i18n/request.ts, middleware.ts, LanguageSelector.tsx)
+- Translation locale files (public/locales/)
+- `.transloom.json` config
+
+---
+
+## What the extractor catches
+
+| Type | Example |
+|------|---------|
+| JSX text | `<button>Sign in</button>` |
+| Attributes | `placeholder="Enter email"` |
+| Toast/alert calls | `toast.success("Saved!")` |
+
+**What it skips:**
+- URLs and paths
+- Hex colors (#fff)
+- CSS class names
+- Numbers and operators
+- camelCase identifiers
+- Single-character strings
+- Code fragments

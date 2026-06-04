@@ -1,0 +1,90 @@
+---
+title: Quick Start
+description: Get your app multilingual in under 5 minutes
+---
+
+## Step 1 — Install
+
+```bash
+npm install -g transloom
+```
+
+Or run without installing:
+
+```bash
+npx transloom init
+```
+
+**Requirements:** Node.js 18 or higher
+
+## Step 2 — Initialize
+
+Run this once inside your project:
+
+```bash
+cd your-react-project
+transloom init
+```
+
+It will ask you:
+
+- **API Key** — use the free demo key: `tl_demo_transloom_key`
+- **Target languages** — e.g. German, French, Spanish
+- **Output directory** — default: `public/locales`
+- **Namespace support** — groups keys by feature (recommended)
+
+This creates a `.transloom.json` config file in your project root.
+
+## Step 3 — Scan
+
+```bash
+transloom scan
+```
+
+During the scan, Transloom will ask:
+
+| Prompt | What it does |
+|--------|-------------|
+| Which framework? | Next.js or React — installs the right package |
+| Set up i18n? | Install next-intl / i18next and create config files |
+| Create GitHub PR? | Backend opens a PR with all the changes |
+| Language selector? | Already have one / Create for me / I'll do it later |
+| Replace strings? | Shows preview of all replacements, then asks to confirm |
+
+## Done! 🎉
+
+Your app is now i18n-ready. Transloom will have:
+
+- ✅ Found all hardcoded strings
+- ✅ Generated structured i18n keys
+- ✅ Created `en.json`, `de.json` etc.
+- ✅ Replaced strings with `t()` calls
+- ✅ Set up i18n library
+- ✅ Created `LanguageSelector` component
+- ✅ Opened a GitHub PR
+
+## What your code looks like
+
+**Before:**
+```jsx
+<h1>Welcome back</h1>
+<button>Sign in</button>
+<input placeholder="Enter your email" />
+```
+
+**After:**
+```jsx
+<h1>{t('welcome_back')}</h1>
+<button>{t('sign_in')}</button>
+<input placeholder={t('enter_email')} />
+```
+
+## Try without changing files
+
+Want to preview what would be extracted?
+
+```bash
+transloom scan --dry-run
+```
+
+Shows every string found (file, line, text) without making any changes.

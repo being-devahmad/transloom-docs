@@ -1,0 +1,36 @@
+{
+  "name": "Transloom",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#7c3aed",
+    "light": "#a78bfa",
+    "dark": "#6d28d9"
+  },
+  "topbarLinks": [
+    {
+      "name": "Dashboard",
+      "url": "https://localeflow.vercel.app"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://localeflow.vercel.app"
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart"]
+    },
+    {
+      "group": "CLI Reference",
+      "pages": ["cli-commands", "configuration"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/being-devahmad/transloom-cli"
+  }
+}

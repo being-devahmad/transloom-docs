@@ -1,0 +1,81 @@
+---
+title: Configuration
+description: Complete reference for .transloom.json config file
+---
+
+## .transloom.json
+
+Created automatically by `transloom init` in your project root.
+
+```json
+{
+  "apiKey": "tl_xxxxxxxxxxxx",
+  "languages": ["en", "de", "fr"],
+  "framework": "nextjs",
+  "outputDir": "public/locales",
+  "namespace": false,
+  "ignore": ["node_modules", "dist", ".next", "build", "coverage", ".git"]
+}
+```
+
+## Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `apiKey` | string | Your Transloom API key |
+| `languages` | array | Languages to translate into — `en` is always the base |
+| `framework` | string | `"nextjs"` or `"react"` |
+| `outputDir` | string | Where locale JSON files are written |
+| `namespace` | boolean | Group keys by feature (`auth.login`) instead of flat (`login`) |
+| `ignore` | array | Folders to skip during file discovery |
+
+## Namespace Support
+
+When `namespace: true`, keys are grouped by the feature/folder they come from.
+
+**Without namespace (default):**
+```json
+{
+  "login": "Login",
+  "signup": "Sign Up",
+  "dashboard_title": "Dashboard"
+}
+```
+
+**With namespace:**
+```json
+{
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  }
+}
+```
+
+Namespaces are derived automatically from the file path:
+
+```
+src/app/auth/page.tsx      → auth
+src/app/dashboard/page.tsx → dashboard
+src/components/Navbar.tsx  → navbar
+```
+
+## Demo Key
+
+Want to try Transloom without signing up?
+
+```
+tl_demo_transloom_key
+```
+
+Use this as your `apiKey` to run up to 3 free scans.
+
+## Security
+
+- ✅ Your source code **never** leaves your machine
+- ✅ Only extracted text strings are sent to the server
+- ✅ API key authenticated on every request
+- ✅ All communication over HTTPS
