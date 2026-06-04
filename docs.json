@@ -1,5 +1,6 @@
 {
   "name": "Transloom",
+   "theme": "mint",
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
